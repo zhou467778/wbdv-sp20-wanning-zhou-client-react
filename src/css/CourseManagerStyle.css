@@ -1,0 +1,128 @@
+.wbdv-button.wbdv-add-course {
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 3px;
+    margin-left: 20px;
+    line-height: 37px;
+}
+
+.wbdv-tableheader {
+    background-color: #F0F0F0;
+    color: #808080;
+
+}
+
+.wbdv-coursetable {
+    width: 100%;
+    text-align: left;
+}
+.wbdv-cardheader{
+    height:45px;
+    border: solid thin lightgray;
+    width: 100%;
+    background-color: #F0F0F0;
+    color: #808080;
+}
+
+.wbdv-course {
+    border: solid thin lightgray;
+    height: 45px;
+}
+
+.wbdv-header.wbdv-title {
+    color: #404040;
+
+
+}
+
+.wbdv-header.wbdv-owner {
+    color: #808080;
+    padding-left: 200px;
+}
+
+.wbdv-modified-date {
+    color: #808080;
+}
+.wbdv-sort{
+    margin-left: 10px;
+}
+.wbdv-row.wbdv-owner{
+    padding-left: 200px;
+}
+
+.wbdv-bottom-plus {
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 37px;
+    right: 40px;
+    bottom: 20px;
+    position: fixed;
+}
+.wbdv-title-icons{
+    padding-left: 15px;
+}
+.wbdv-header.wbdv-title{
+    padding-left: 50px;
+}
+.wbdv-one-card{
+    display: inline-block;
+}
+.wbdv-list-layout{
+    display: inline-block;
+    margin-left: 200px;
+    color: #808080;
+}
+.wbdv-card.wbdv-document{
+    display: inline-block;
+    margin: 10px;
+    padding-left: 50px;
+}
+.wbdv-card.wbdv-owner{
+    display: inline-block;
+    margin:10px;
+    padding-left: 500px;
+}
+.wbdv-card.wbdv-sort{
+    display: inline-block;
+    margin-left: 50px;
+    color: #808080;
+}
+
+
+@media only screen and (max-width: 540px) {
+    td:nth-child(2) {
+        display:none;
+    }
+}
+@media only screen and (max-width: 540px) {
+    td:nth-child(3) {
+        display:none;
+    }
+}
+@media only screen and (max-width: 540px) {
+    th:nth-child(2) {
+        display:none;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    th:nth-child(3) {
+        display:none;
+    }
+}
+
+
