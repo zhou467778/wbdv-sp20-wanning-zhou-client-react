@@ -18,7 +18,7 @@ export const findAllCourses = async () => {
 
 export const findUserById = async (courseId) => {
     const response = await fetch(`${API_URL}/${courseId}`)
-        return await response.json()
+    return await response.json()
 }
 
 export const updateCourse = async (course) => {
@@ -29,12 +29,11 @@ export const updateCourse = async (course) => {
             'content-type': 'application/json'
         }
     })
-        return response.json()
+    return response.json()
 }
 
 
-export const deleteCourse = async (courseId) =>
-{
+export const deleteCourse = async (courseId) => {
     const response = await fetch(`${API_URL}/${courseId}`, {
         method: 'DELETE'
     })

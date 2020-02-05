@@ -18,19 +18,22 @@
     color: #808080;
 
 }
+
 .wbdv-tableheader {
     background-color: #F0F0F0;
     color: #808080;
 
 }
-.selected{
+
+.selected {
     background-color: #e6f5ff;
     color: black;
     border: solid thin lightgray;
     height: 45px;
 
 }
-.unselected{
+
+.unselected {
     border: solid thin lightgray;
     height: 45px;
     background-color: transparent;
@@ -38,17 +41,10 @@
 
 }
 
-
-
-
-
 .wbdv-coursetable {
     width: 100%;
     text-align: left;
 }
-
-
-
 
 .wbdv-header.wbdv-title {
     color: #404040;
@@ -62,10 +58,12 @@
 .wbdv-modified-date {
     color: #808080;
 }
-.wbdv-sort{
+
+.wbdv-sort {
     margin-left: 10px;
 }
-.wbdv-row.wbdv-owner{
+
+.wbdv-row.wbdv-owner {
     padding-left: 200px;
 }
 
@@ -84,30 +82,36 @@
     bottom: 20px;
     position: fixed;
 }
-.wbdv-title-icons{
+
+.wbdv-title-icons {
     padding-left: 15px;
 }
-.wbdv-header.wbdv-title{
+
+.wbdv-header.wbdv-title {
     padding-left: 50px;
 }
 
-.wbdv-list-layout{
+.wbdv-list-layout {
     margin-left: 340px;
     color: #808080;
 }
-.wbdv-card.wbdv-document{
+
+.wbdv-card.wbdv-document {
     margin: 10px;
     padding-left: 50px;
 }
-.wbdv-card.wbdv-owner{
-    margin:10px;
+
+.wbdv-card.wbdv-owner {
+    margin: 10px;
     padding-left: 500px;
 }
-.wbdv-card.wbdv-sort{
+
+.wbdv-card.wbdv-sort {
     margin-left: 95px;
     color: #808080;
 }
-.wbdv-card.wbdv-folder{
+
+.wbdv-card.wbdv-folder {
     margin-left: 100px;
     color: #808080;
 }
@@ -115,23 +119,25 @@
 
 @media only screen and (max-width: 540px) {
     td:nth-child(2) {
-        display:none;
+        display: none;
     }
 }
+
 @media only screen and (max-width: 540px) {
     td:nth-child(3) {
-        display:none;
+        display: none;
     }
 }
+
 @media only screen and (max-width: 540px) {
     th:nth-child(2) {
-        display:none;
+        display: none;
     }
 }
 
 @media only screen and (max-width: 540px) {
     th:nth-child(3) {
-        display:none;
+        display: none;
     }
 }
 

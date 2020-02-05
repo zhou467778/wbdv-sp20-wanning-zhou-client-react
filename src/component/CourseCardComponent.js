@@ -20,7 +20,7 @@ class CourseCardComponent extends React.Component {
                     <div className="card-body">
 
                         <a href="#" type="button" className="wbdv-card wbdv-title card-title"
-                           onClick = {this.props.showEditor}>
+                           onClick={this.props.showEditor}>
                             <i className="fas fa-file-alt wbdv-card wbdv-icon"
                                style={{color: "#1E90FF"}}></i> {this.props.course.title}</a>
                         <p className="card-text">Modified by me 6:45PM</p>

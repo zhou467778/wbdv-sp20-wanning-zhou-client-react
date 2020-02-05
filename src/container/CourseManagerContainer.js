@@ -16,7 +16,6 @@ class CourseManagerContainer extends React.Component {
             newCourseTitle: '',
             courses: [],
             id: ''
-
         }
     }
 
@@ -28,7 +27,6 @@ class CourseManagerContainer extends React.Component {
     };
 
     componentDidMount = this.initCourses();
-
 
     // to toggle the state layout between table and grid
     toggle = () =>
@@ -114,12 +112,6 @@ class CourseManagerContainer extends React.Component {
         this.setState({
             selected: true
         })
-
-    hideSelect = () =>
-        this.setState({
-            selected: false
-        })
-
 
     updateForm = (newState) => {
         this.setState(newState)

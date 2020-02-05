@@ -22,11 +22,11 @@ const CourseTableComponent = ({courses, deleteCourse, showEditor, updateCourse, 
                 return (
                     <CourseRowComponent
                         course={course}
-                        selectRow = {selectRow}
+                        selectRow={selectRow}
                         showEditor={showEditor}
                         updateCourse={updateCourse}
                         deleteCourse={deleteCourse}
-                       />
+                    />
                 )
             })
         }

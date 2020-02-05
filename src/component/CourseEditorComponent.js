@@ -5,7 +5,6 @@ import "../../node_modules/font-awesome/css/font-awesome.css"
 
 const CourseEditorComponent = ({hideEditor}) =>
 
-
     <div className=" bg-white wbdv-main">
         <div className=" wbdv-page-tab">
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
