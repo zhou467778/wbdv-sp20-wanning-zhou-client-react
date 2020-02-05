@@ -1,0 +1,130 @@
+.wbdv-main {
+    position: relative;
+}
+
+.wbdv-module-item {
+    background-color: #585858;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.wbdv-module-list {
+    width: 20%;
+    position: fixed;
+    top: 36px;
+    left: 0;
+    background-color: #404040;
+    color: white;
+
+}
+
+.wbdv-module-item:hover {
+    background-color: #22A7F0;
+    color: white;
+}
+
+.wbdv-module-item-delete-btn {
+    right: 0%;
+    margin-left: 20px;
+}
+
+.wbdv-module-item-delete-btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.wbdv-module-list {
+    margin-top: 20px;
+    float: left;
+}
+
+.wbdv-choose {
+    background-color: #22A7F0;
+    color: white;
+}
+
+.wbdv-module-item-add-btn {
+    background-color: #404040;
+    padding: 15px 35px;
+    text-align: right;
+    display: inline-block;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.wbdv-content {
+    margin-left: 20%;
+
+}
+
+.wbdv-topic-pill-list {
+    margin-left: 5%;
+}
+
+.wbdv-boxed {
+    border: 0.1px solid #BEBEBE;
+    padding: 1%;
+    margin-left: 3%;
+    margin-top: 5%;
+    margin-right: 3%;
+}
+
+.btn-success {
+    margin-left: 80%;
+}
+
+.wbdv-big-heading {
+    display: inline-block;
+}
+
+.wbdv-up {
+    background-color: #ffd700;
+    color: black;
+    margin-left: 48%;
+    display: inline-block;
+}
+
+.wbdv-down {
+    background-color: #ffd700;
+    display: inline-block;
+}
+
+.wbdv-heading {
+    display: inline-block;
+}
+
+.wbdv-red-close {
+    background-color: #DE1616;
+    color: white;
+    display: inline-block;
+}
+
+.wbdv-red-plus {
+    background-color: #DE1616;
+    border-radius: 50%;
+    color: white;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 37px;
+    right: 40px;
+    bottom: 20px;
+    position: fixed;
+}
+
+
+

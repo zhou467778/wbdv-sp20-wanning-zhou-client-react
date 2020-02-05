@@ -1,6 +1,7 @@
 import React from "react";
 
-class CourseRow extends React.Component {
+
+class CourseRowComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,33 +12,41 @@ class CourseRow extends React.Component {
     }
 
     render() {
+        let style = this.state.selected || this.state.editing ? "selected" : "unselected";
+
         return (
             <tbody>
 
-            <tr className="wbdv-row wbdv-course">
+
+            <tr className= {style}
+                onClick={() => {
+                    if (this.state.selected){
+                        this.setState({selected: false})
+                    }
+                    else(this.setState({selected: true}))
+                }}
+                >
 
                 {this.state.editing
                 && <input value={this.state.courseTitle}
                           onChange={(e) => this.setState({
-                              courseTitle: e.target.value
-                          })}/>}
+                              courseTitle: e.target.value})}/>}
 
 
                 {!this.state.editing && <td className="wbdv-title-icons">
-                    <a href="#" type="button" className="wbdv-row wbdv-title" onClick={() => this.props.showEditor}>
+                    <a href="#" type="button" className="wbdv-row wbdv-title"
+                       onClick= {this.props.showEditor}>
                         <i className="fas fa-file-alt wbdv-row wbdv-icon"
-                           style={{color: "#1E90FF"}}></i> {this.state.courseTitle}</a>
+                           style={{color: "#1E90FF"}}></i> {this.props.course.title}</a>
                 </td>
                 }
 
 
                 <td className="wbdv-row wbdv-owner">me</td>
 
-
                 <td className="wbdv-row wbdv-modified-date">6:45 PM</td>
 
                 {this.state.editing
-
                 && <td>
                     <button className="wbdv-check" onClick={() => {
                         const newCourse = this.props.course;
@@ -58,13 +67,17 @@ class CourseRow extends React.Component {
                             {editing: true}
                         )}><i className="fas fa-edit" style={{color: "#808080"}}></i></button>
 
-                    <button onClick={() => this.props.deleteCourse(this.props.course)}
+                    <button onClick={() => {
+                        this.props.deleteCourse(this.props.course);
+                    }}
                             className="wbdv-row wbdv-button wbdv-delete">
                         <i className="fas fa-trash-alt" style={{color: "#808080"}}></i></button>
                 </td>}
 
 
             </tr>
+
+
             </tbody>
 
 
@@ -74,4 +87,4 @@ class CourseRow extends React.Component {
     }
 }
 
-export default CourseRow;
+export default CourseRowComponent;

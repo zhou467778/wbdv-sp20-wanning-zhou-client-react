@@ -18,28 +18,40 @@
     color: #808080;
 
 }
+.wbdv-tableheader {
+    background-color: #F0F0F0;
+    color: #808080;
+
+}
+.selected{
+    background-color: #e6f5ff;
+    color: black;
+    border: solid thin lightgray;
+    height: 45px;
+
+}
+.unselected{
+    border: solid thin lightgray;
+    height: 45px;
+    background-color: transparent;
+    color: black;
+
+}
+
+
+
+
 
 .wbdv-coursetable {
     width: 100%;
     text-align: left;
 }
-.wbdv-cardheader{
-    height:45px;
-    border: solid thin lightgray;
-    width: 100%;
-    background-color: #F0F0F0;
-    color: #808080;
-}
 
-.wbdv-course {
-    border: solid thin lightgray;
-    height: 45px;
-}
+
+
 
 .wbdv-header.wbdv-title {
     color: #404040;
-
-
 }
 
 .wbdv-header.wbdv-owner {
@@ -78,27 +90,25 @@
 .wbdv-header.wbdv-title{
     padding-left: 50px;
 }
-.wbdv-one-card{
-    display: inline-block;
-}
+
 .wbdv-list-layout{
-    display: inline-block;
-    margin-left: 200px;
+    margin-left: 340px;
     color: #808080;
 }
 .wbdv-card.wbdv-document{
-    display: inline-block;
     margin: 10px;
     padding-left: 50px;
 }
 .wbdv-card.wbdv-owner{
-    display: inline-block;
     margin:10px;
     padding-left: 500px;
 }
 .wbdv-card.wbdv-sort{
-    display: inline-block;
-    margin-left: 50px;
+    margin-left: 95px;
+    color: #808080;
+}
+.wbdv-card.wbdv-folder{
+    margin-left: 100px;
     color: #808080;
 }
 
