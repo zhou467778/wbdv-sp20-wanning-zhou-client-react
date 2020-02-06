@@ -32,6 +32,13 @@
     height: 45px;
 
 }
+.selected:hover{
+    background-color: #e6f5ff;
+    color: black;
+    border: solid thin lightgray;
+    height: 45px;
+
+}
 
 .unselected {
     border: solid thin lightgray;
@@ -39,6 +46,12 @@
     background-color: transparent;
     color: black;
 
+}
+.unselected:hover{
+    background-color: #e6f5ff;
+    color: black;
+    border: solid thin lightgray;
+    height: 45px;
 }
 
 .wbdv-coursetable {

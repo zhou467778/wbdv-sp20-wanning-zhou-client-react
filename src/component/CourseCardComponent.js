@@ -25,6 +25,12 @@ class CourseCardComponent extends React.Component {
                                style={{color: "#1E90FF"}}></i> {this.props.course.title}</a>
                         <p className="card-text">Modified by me 6:45PM</p>
 
+                        {this.state.editing
+                        && <input value={this.state.courseTitle}
+                                  onChange={(e) => this.setState({
+                                      courseTitle: e.target.value
+                                  })}/>}
+
                         {!this.state.editing &&
                         <button onClick={() =>
                             this.setState(
@@ -32,7 +38,10 @@ class CourseCardComponent extends React.Component {
                             )}><i className="fas fa-edit" style={{color: "#808080"}}></i></button>}
 
                         {!this.state.editing &&
-                        <button onClick={() => this.props.deleteCourse(this.props.course)}
+                        <button onClick={() => {
+                            this.props.deleteCourse(this.props.course);
+
+                        }}
                                 className="wbdv-card wbdv-button wbdv-delete">
                             <i className="fas fa-trash-alt" style={{color: "#808080"}}></i></button>}
 
@@ -48,11 +57,7 @@ class CourseCardComponent extends React.Component {
                         >
                             <i className="fas fa-check"></i></button>}
 
-                        {this.state.editing
-                        && <input value={this.state.courseTitle}
-                                  onChange={(e) => this.setState({
-                                      courseTitle: e.target.value
-                                  })}/>}
+
 
                     </div>
                 </div>

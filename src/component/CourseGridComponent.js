@@ -26,10 +26,12 @@ const CourseGridComponent = ({courses, deleteCourse, showEditor, updateCourse, t
                 courses.map(function (course, index) {
                     return (
                         <CourseCardComponent
+                            key={course._id}
                             course={course}
                             showEditor={showEditor}
                             updateCourse={updateCourse}
-                            deleteCourse={deleteCourse}/>
+                            deleteCourse={deleteCourse}
+                        />
                     )
                 })
             }

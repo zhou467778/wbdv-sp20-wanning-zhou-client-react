@@ -7,7 +7,7 @@ class CourseRowComponent extends React.Component {
         this.state = {
             editing: false,
             selected: false,
-            courseTitle: this.props.course.title,
+            courseTitle: this.props.course.title
         }
     }
 
@@ -62,6 +62,7 @@ class CourseRowComponent extends React.Component {
 
                     <button onClick={() => {
                         this.props.deleteCourse(this.props.course);
+
                     }}
                             className="wbdv-row wbdv-button wbdv-delete">
                         <i className="fas fa-trash-alt" style={{color: "#808080"}}></i></button>

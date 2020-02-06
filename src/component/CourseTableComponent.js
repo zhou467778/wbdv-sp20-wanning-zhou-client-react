@@ -21,11 +21,13 @@ const CourseTableComponent = ({courses, deleteCourse, showEditor, updateCourse, 
             courses.map(function (course) {
                 return (
                     <CourseRowComponent
+                        key={course._id}
                         course={course}
                         selectRow={selectRow}
                         showEditor={showEditor}
                         updateCourse={updateCourse}
                         deleteCourse={deleteCourse}
+
                     />
                 )
             })

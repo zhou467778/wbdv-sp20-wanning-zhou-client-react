@@ -19,6 +19,7 @@ class CourseManagerContainer extends React.Component {
         }
     }
 
+
     initCourses = async () => {
         const courses = await findAllCourses()
         this.setState({
@@ -55,7 +56,6 @@ class CourseManagerContainer extends React.Component {
                 return newState
             })
         });
-
     }
 
 
@@ -171,7 +171,8 @@ class CourseManagerContainer extends React.Component {
                                 updateCourse={this.updateCourse}
                                 selectRow={this.selectRow}
                                 toggle={this.toggle}
-                                courses={this.state.courses}/>
+                                courses={this.state.courses}
+                            />
 
                         }
                         {
@@ -181,7 +182,8 @@ class CourseManagerContainer extends React.Component {
                                 deleteCourse={this.deleteCourse}
                                 updateCourse={this.updateCourse}
                                 toggle={this.toggle}
-                                courses={this.state.courses}/>
+                                courses={this.state.courses}
+                            />
                         }
                     </div>
                 </div>
