@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 class CourseCardComponent extends React.Component {
     constructor(props) {
@@ -19,10 +20,9 @@ class CourseCardComponent extends React.Component {
                           src="https://picsum.photos/300/200"/>
                     <div className="card-body">
 
-                        <a href="#" type="button" className="wbdv-card wbdv-title card-title"
-                           onClick={this.props.showEditor}>
+                        <Link to={`/course-editor/${this.props.course._id}`}>
                             <i className="fas fa-file-alt wbdv-card wbdv-icon"
-                               style={{color: "#1E90FF"}}></i> {this.props.course.title}</a>
+                               style={{color: "#1E90FF"}}></i> {this.props.course.title}</Link>
                         <p className="card-text">Modified by me 6:45PM</p>
 
                         {this.state.editing

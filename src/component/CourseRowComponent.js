@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 
 class CourseRowComponent extends React.Component {
@@ -29,10 +30,9 @@ class CourseRowComponent extends React.Component {
                           })}/>}
 
                 {!this.state.editing && <td className="wbdv-title-icons">
-                    <a href="#" type="button" className="wbdv-row wbdv-title"
-                       onClick={this.props.showEditor}>
+                    <Link to={`/course-editor/${this.props.course._id}`}>
                         <i className="fas fa-file-alt wbdv-row wbdv-icon"
-                           style={{color: "#1E90FF"}}></i> {this.props.course.title}</a>
+                           style={{color: "#1E90FF"}}></i> {this.props.course.title}</Link>
                 </td>
                 }
 

@@ -4,6 +4,8 @@ import "../css/CourseManagerStyle.css";
 import CourseGridComponent from "../component/CourseGridComponent"
 import CourseEditorComponent from "../component/CourseEditorComponent"
 import {createCourse, findAllCourses, findUserById, updateCourse, deleteCourse} from "../services/CourseService";
+import CourseListComponent from "../component/CourseListComponent";
+import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 
 
 class CourseManagerContainer extends React.Component {
@@ -121,78 +123,53 @@ class CourseManagerContainer extends React.Component {
     render() {
         return (
             <div>
-                {!this.state.showEditor && <div>
-                    <div className="wbdv-label wbdv-course-manager">
-                        <link rel="stylesheet"
-                              href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-                              integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-                              crossOrigin="anonymous"/>
-                        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-                              rel="stylesheet"/>
-                        <link rel="stylesheet"
-                              href="../css/CourseManagerStyle.css"/>
-                        <link rel="stylesheet"
-                              href="../css/CourseEditorStyle.css"/>
+                <Router>
 
-
-                        <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
-                            <ul className="nav navbar-nav">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">
-                                        <i className="fa fa-bars wbdv-field wbdv-hamburger"></i></a>
-                                </li>
-                                <span
-                                    className="navbar-brand wbdv-course-title d-sm-none d-md-block d-none d-sm-block"
-                                    href="#">Course Manager</span>
-                            </ul>
-                            <div className="form-inline wbdv-field wbdv-new-course">
-                                <label htmlFor="newcourse"></label>
-                                <input id="newcourse" className="form-control "
-                                       type="text" placeholder="New Course Title"
-
-                                       onChange={(e) => this.updateForm({
-                                           newCourseTitle: e.target.value
-                                       })}
-                                       value={this.state.newCourseTitle}/>
-
-
-                                <a type="button" className="wbdv-button wbdv-add-course"
-                                   onClick={this.addCourse}><i className="fa fa-plus"></i></a>
-
-                            </div>
-                        </nav>
-                    </div>
-                    <div>
-                        {
-                            this.state.layout === 'table' &&
-                            <CourseTableComponent
-                                showEditor={this.showEditor}
-                                deleteCourse={this.deleteCourse}
-                                updateCourse={this.updateCourse}
-                                selectRow={this.selectRow}
-                                toggle={this.toggle}
-                                courses={this.state.courses}
-                            />
-
-                        }
-                        {
-                            this.state.layout === 'grid' &&
-                            <CourseGridComponent
-                                showEditor={this.showEditor}
-                                deleteCourse={this.deleteCourse}
-                                updateCourse={this.updateCourse}
-                                toggle={this.toggle}
-                                courses={this.state.courses}
-                            />
-                        }
-                    </div>
-                </div>
+                   <Route path = "/"
+                          exact = {true}
+                          render = {() =>
+                    <CourseListComponent
+                        updateForm = {this.updateForm}
+                    newCourseTitle ={this.state.newCourseTitle}
+                    addCourse ={this.addCourse}
+                    layout = {this.state.layout}
+                    showEditor = {this.showEditor}
+                    deleteCourse = {this.deleteCourse}
+                    updateCourse={this.updateCourse}
+                    selectRow ={this.selectRow}
+                        toggle = {this.toggle}
+                    courses ={this.state.courses}
+                    />
                 }
+                       />
 
-                {this.state.showEditor &&
-                <CourseEditorComponent
-                    hideEditor={this.hideEditor}/>}
+                    <Route path="/course-editor/:courseId"
+                           exact={true}
+                           render={(props) =>
+                               <CourseEditorComponent
+                                   {...props}
+                                   courseId={props.match.params.courseId}/>
+                           }/>
+                    <Route path="/course-editor/:courseId/module/:moduleId"
+                           exact={true}
+                           render={(props) =>
+                               <CourseEditorComponent
+                                   {...props}
+                                   moduleId={props.match.params.moduleId}
+                                   courseId={props.match.params.courseId}/>
+                           }/>
+                    <Route path="/course-editor/:courseId/module/:moduleId/lesson/:lessonId"
+                           exact={true}
+                           render={(props) =>
+                               <CourseEditorComponent
+                                   {...props}
+                                   lessonId={props.match.params.lessonId}
+                                   moduleId={props.match.params.moduleId}
+                                   courseId={props.match.params.courseId}/>
+                           }/>
 
+
+                </Router>
             </div>
 
 

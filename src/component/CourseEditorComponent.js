@@ -3,14 +3,14 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.css"
 import "../css/CourseEditorStyle.css"
 import "../../node_modules/font-awesome/css/font-awesome.css"
 
-const CourseEditorComponent = ({hideEditor}) =>
+const CourseEditorComponent = ({history}) =>
 
     <div className=" bg-white wbdv-main">
         <div className=" wbdv-page-tab">
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
                 <ul className="nav navbar-nav">
                     <li className="nav-item">
-                        <button onClick={hideEditor}
+                        <button onClick={() => history.push("/")}
                                 className="wbdv-course-editor wbdv-close"><i className="fa fa-times "></i></button>
 
                     </li>
