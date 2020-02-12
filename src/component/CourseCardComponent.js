@@ -20,7 +20,7 @@ class CourseCardComponent extends React.Component {
                           src="https://picsum.photos/300/200"/>
                     <div className="card-body">
 
-                        <Link to={`/course-editor/${this.props.course._id}`}>
+                        <Link to={`/course-editor/${this.props.course.title}/${this.props.course._id}`}>
                             <i className="fas fa-file-alt wbdv-card wbdv-icon"
                                style={{color: "#1E90FF"}}></i> {this.props.course.title}</Link>
                         <p className="card-text">Modified by me 6:45PM</p>

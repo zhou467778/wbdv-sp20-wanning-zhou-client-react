@@ -61,7 +61,7 @@ const CourseListComponent = (
     </div>
     <div>
         {
-            layout === 'table' &&
+            (layout === 'table' || typeof layout === 'undefined') &&
             <CourseTableComponent
                 showEditor={showEditor}
                 deleteCourse={deleteCourse}

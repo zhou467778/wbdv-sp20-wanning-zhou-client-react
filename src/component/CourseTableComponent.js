@@ -1,5 +1,6 @@
 import React from "react";
 import CourseRowComponent from "./CourseRowComponent";
+import {Link} from "react-router-dom";
 
 const CourseTableComponent = ({courses, deleteCourse, showEditor, updateCourse, toggle, selectRow}) =>
     <table className="wbdv-coursetable">
@@ -9,9 +10,11 @@ const CourseTableComponent = ({courses, deleteCourse, showEditor, updateCourse, 
             <th className="wbdv-header wbdv-owner wbdv-sort">Owned by<i className="fa fa-sort-desc"></i></th>
             <th className="wbdv-header wbdv-last-modified ">Last modified by me</th>
             <th>
-                <button className="wbdv-button wbdv-grid-layout" onClick={toggle}><i className="fa fa-th"
+                <Link to ={ `/grid`}>
+                <button className="wbdv-button wbdv-grid-layout" ><i className="fa fa-th"
                                                                                      style={{color: "#808080"}}></i>
                 </button>
+                </Link>
                 <button className="wbdv-button wbdv-sort"><i className="fas fa-sort-alpha-down"></i></button>
             </th>
         </tr>

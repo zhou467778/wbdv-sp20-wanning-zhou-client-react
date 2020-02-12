@@ -1,8 +1,7 @@
 import React from "react";
-import CourseTableComponent from "../component/CourseTableComponent";
+
 import "../css/CourseManagerStyle.css";
-import CourseGridComponent from "../component/CourseGridComponent"
-import CourseEditorComponent from "../component/CourseEditorComponent"
+import CourseEditorComponent from "../component/CourseEditor/CourseEditorComponent"
 import {createCourse, findAllCourses, findUserById, updateCourse, deleteCourse} from "../services/CourseService";
 import CourseListComponent from "../component/CourseListComponent";
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
@@ -125,47 +124,63 @@ class CourseManagerContainer extends React.Component {
             <div>
                 <Router>
 
-                   <Route path = "/"
+                   <Route path = {["/","/:layout"]}
                           exact = {true}
-                          render = {() =>
+                          render = {(props) =>
                     <CourseListComponent
+                        {...props}
+                        layout = {props.match.params.layout}
                         updateForm = {this.updateForm}
                     newCourseTitle ={this.state.newCourseTitle}
                     addCourse ={this.addCourse}
-                    layout = {this.state.layout}
                     showEditor = {this.showEditor}
                     deleteCourse = {this.deleteCourse}
                     updateCourse={this.updateCourse}
                     selectRow ={this.selectRow}
                         toggle = {this.toggle}
                     courses ={this.state.courses}
+
                     />
                 }
                        />
 
-                    <Route path="/course-editor/:courseId"
+                    <Route path="/course-editor/:courseTitle/:courseId"
                            exact={true}
                            render={(props) =>
                                <CourseEditorComponent
                                    {...props}
+                                   courseTitle = {props.match.params.courseTitle}
                                    courseId={props.match.params.courseId}/>
                            }/>
-                    <Route path="/course-editor/:courseId/module/:moduleId"
+                    <Route path="/course-editor/:courseTitle/:courseId/module/:moduleId"
                            exact={true}
                            render={(props) =>
                                <CourseEditorComponent
                                    {...props}
                                    moduleId={props.match.params.moduleId}
-                                   courseId={props.match.params.courseId}/>
+                                   courseId={props.match.params.courseId}
+                                   courseTitle = {props.match.params.courseTitle}/>
                            }/>
-                    <Route path="/course-editor/:courseId/module/:moduleId/lesson/:lessonId"
+                    <Route path="/course-editor/:courseTitle/:courseId/module/:moduleId/lesson/:lessonId"
                            exact={true}
                            render={(props) =>
                                <CourseEditorComponent
                                    {...props}
                                    lessonId={props.match.params.lessonId}
                                    moduleId={props.match.params.moduleId}
-                                   courseId={props.match.params.courseId}/>
+                                   courseId={props.match.params.courseId}
+                                   courseTitle = {props.match.params.courseTitle}/>
+                           }/>
+                    <Route path="/course-editor/:courseTitle/:courseId/module/:moduleId/lesson/:lessonId/topic/:topicId"
+                           exact={true}
+                           render={(props) =>
+                               <CourseEditorComponent
+                                   {...props}
+                                   lessonId={props.match.params.lessonId}
+                                   moduleId={props.match.params.moduleId}
+                                   courseId={props.match.params.courseId}
+                                    topicId = {props.match.params.topicId}
+                                   courseTitle = {props.match.params.courseTitle}/>
                            }/>
 
 

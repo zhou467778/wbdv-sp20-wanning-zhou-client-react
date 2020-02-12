@@ -2,8 +2,9 @@
     position: relative;
 }
 
-.wbdv-module-item {
-    background-color: #585858;
+
+.module_selected {
+    background-color: #cce5ff;
     border: none;
     padding: 15px;
     text-align: center;
@@ -14,6 +15,21 @@
     margin-left: 20px;
     margin-right: 20px;
 
+}
+.module_unselected {
+    background-color: white;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.module_unselected:hover{
+    background-color: #cce5ff
 }
 
 .wbdv-module-list {
@@ -34,9 +50,28 @@
 .wbdv-module-item-delete-btn {
     right: 0%;
     margin-left: 20px;
+    font-size: 15px;
 }
 
 .wbdv-module-item-delete-btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.wbdv-module-item-check-btn{
+    margin-let: 5px;
+    font-size: 15px;
+}
+.wbdv-module-item-check-btn:hover{
+    background-color: darkred;
+    color: white;
+}
+
+.wbdv-module-item-edit-btn {
+    font-size: 15px;
+    margin-left: 25px;
+}
+.wbdv-module-item-edit-btn:hover{
     background-color: darkred;
     color: white;
 }
@@ -69,7 +104,8 @@
 }
 
 .wbdv-topic-pill-list {
-    margin-left: 5%;
+    margin-left: 22%;
+    margin-top: 10px;
 }
 
 .wbdv-boxed {
@@ -125,6 +161,82 @@
     bottom: 20px;
     position: fixed;
 }
+
+.wbdv-course-title{
+    display: inline-block;
+    margin-top: 5px;
+}
+.wbdv-course-editor.wbdv-close{
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.wbdv-lesson-tab{
+    margin-left: 22%;
+}
+.wbdv-lesson-tab-edit{
+    margin-left: 7px;
+    font-size: 15px;
+}
+.wbdv-lesson-tab-edit:hover{
+    background-color: darkred;
+    color: white;
+}
+.wbdv-lesson-tab-delete{
+    font-size: 15px;
+}
+.wbdv-lesson-tab-delete:hover{
+    background-color: darkred;
+    color: white;
+}
+
+.wbdv-lesson-tab-check{
+    font-size: 15px;
+}
+.wbdv-lesson-tab-check:hover{
+    background-color: darkred;
+    color: white;
+}
+
+.lesson-selected{
+    background-color: #cce5ff;
+}
+.lesson-unselected{
+    background-color: white;
+}
+.lesson-unselected:hover{
+    background-color:#cce5ff ;
+}
+.wbdv-topic-pill-edit{
+    margin-left: 7px;
+    font-size: 15px;
+}
+.wbdv-topic-pill-edit:hover{
+    background-color: darkred;
+    color: white;
+}
+.topic-selected{
+    background-color: #cce5ff
+}
+.topic-unselected{
+    background-color: white;
+}
+.topic-unselected:hover{
+    background-color:#cce5ff ;
+}
+.wbdv-topic-pill-delete:hover{
+    background-color: darkred;
+    color: white;
+}
+.wbdv-topic-pill-check:hover{
+    background-color: darkred;
+    color: white;
+}
+
+
+
+
 
 
 
