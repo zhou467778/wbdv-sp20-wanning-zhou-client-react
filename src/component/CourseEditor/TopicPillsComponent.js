@@ -63,8 +63,14 @@ class TopicPillsComponent extends React.Component {
                         </Link>
                     )}
 
+                    {/*User needs to select one lesson first, and then can add topics into the lesson.*/}
+                    {/*Or the plus-button will not work*/}
                     <button type="button" className="btn btn-primary wbdv-topic-add-btn"
-                            onClick={() => this.props.createTopic(this.props.lessonId)}><i className="fa fa-plus"></i>
+                            onClick={() => {
+                                this.props.lessonId && this.props.createTopic(this.props.lessonId)
+                                !this.props.lessonId && alert("Please select one lesson first")
+                            }}>
+                        <i className="fa fa-plus"></i>
                     </button>
                 </ul>
             </div>

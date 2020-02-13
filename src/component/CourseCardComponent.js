@@ -58,7 +58,6 @@ class CourseCardComponent extends React.Component {
                             <i className="fas fa-check"></i></button>}
 
 
-
                     </div>
                 </div>
             </div>

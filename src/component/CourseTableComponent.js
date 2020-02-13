@@ -10,10 +10,10 @@ const CourseTableComponent = ({courses, deleteCourse, showEditor, updateCourse, 
             <th className="wbdv-header wbdv-owner wbdv-sort">Owned by<i className="fa fa-sort-desc"></i></th>
             <th className="wbdv-header wbdv-last-modified ">Last modified by me</th>
             <th>
-                <Link to ={ `/grid`}>
-                <button className="wbdv-button wbdv-grid-layout" ><i className="fa fa-th"
-                                                                                     style={{color: "#808080"}}></i>
-                </button>
+                <Link to={`/grid`}>
+                    <button className="wbdv-button wbdv-grid-layout"><i className="fa fa-th"
+                                                                        style={{color: "#808080"}}></i>
+                    </button>
                 </Link>
                 <button className="wbdv-button wbdv-sort"><i className="fas fa-sort-alpha-down"></i></button>
             </th>

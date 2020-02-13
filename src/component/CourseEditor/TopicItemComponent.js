@@ -24,15 +24,15 @@ class TopicItemComponent extends React.Component {
 
                     {this.props.editing &&
                     <span>
-                            <input value = {this.state.topicTitle}
+                            <input value={this.state.topicTitle}
                                    onChange={(e) => this.setState({
                                        topicTitle: e.target.value
-                                   }) }
+                                   })}
                             />
-                            <button className = "wbdv-topic-pill-delete"
+                            <button className="wbdv-topic-pill-delete"
                                     onClick={() => this.props.deleteTopic(this.props.topic._id)}>X</button>
-                            <button className ="wbdv-topic-pill-check"
-                                    onClick= {() => {
+                            <button className="wbdv-topic-pill-check"
+                                    onClick={() => {
                                         const newTopic = this.props.topic;
                                         newTopic.title = this.state.topicTitle;
                                         this.props.updateTopic(newTopic);

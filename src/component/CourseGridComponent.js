@@ -11,9 +11,9 @@ const CourseGridComponent = ({courses, deleteCourse, showEditor, updateCourse, t
                 <th className="wbdv-header wbdv-owner wbdv-sort">Owned by me<i className="fa fa-sort-desc"></i></th>
                 <th>
                     <Link to={`/`}>
-                    <button className="wbdv-button wbdv-grid-layout" onClick={toggle}><i className="fa fa-th"
-                                                                                         style={{color: "#808080"}}></i>
-                    </button>
+                        <button className="wbdv-button wbdv-grid-layout" onClick={toggle}><i className="fa fa-th"
+                                                                                             style={{color: "#808080"}}></i>
+                        </button>
                     </Link>
 
                     <button className="wbdv-button wbdv-sort"><i className="fas fa-sort-alpha-down"></i></button>
