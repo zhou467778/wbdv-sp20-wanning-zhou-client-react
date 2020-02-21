@@ -13,6 +13,10 @@ class ParagraphWidgetComponent extends React.Component{
         return (
             <div>
 
+                <div className="form-group">
+                <textarea class="form-control" rows="3"  placeholder="Paragraph text"
+                ></textarea>
+                </div>
 
                 <div className="form-group">
                     <label htmlFor="widgetname"></label>
@@ -24,6 +28,10 @@ class ParagraphWidgetComponent extends React.Component{
                    <p>{this.state.widget.title}</p>
                 </div>
                 }
+                <button type="button" className="btn btn-success btn-lg btn-block"
+                        onClick={()=> {
+                            this.props.updateWidget(this.state.widget)
+                            alert("Successfully saved!")}}>Save</button>
             </div>
         )
     }

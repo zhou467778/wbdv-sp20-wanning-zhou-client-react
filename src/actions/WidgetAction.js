@@ -20,7 +20,7 @@ export const FIND_WIDGETS_FOR_TOPIC = "FIND_WIDGETS_FOR_TOPIC ";
 export const findWidgetForTopic_dis = (widgets) => ({
     type: FIND_WIDGETS_FOR_TOPIC,
     widgets: widgets
-})
+});
 
 export const UPDATE_WIDGET ="UPDATE_WIDGET";
 

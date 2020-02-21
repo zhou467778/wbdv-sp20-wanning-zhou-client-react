@@ -14,7 +14,7 @@ class HeadingWidgetComponent extends React.Component {
             <div>
 
                 <div className="form-group">
-                    <input type="text" className="form-control" id="headingtext" placeholder="Heading Text"
+                    <input type="text" className="form-control"  placeholder="Heading Text"
                         onChange={(e) => {
                             const newTitle = e.target.value;
                             this.setState(prevState => ({
@@ -29,7 +29,7 @@ class HeadingWidgetComponent extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <select className="form-control" id="headingnumber"
+                    <select className="form-control"
                             onChange={(e) => {
                                 const newSize = parseInt(e.target.value)
                                 this.setState(prevState => ({
@@ -50,8 +50,8 @@ class HeadingWidgetComponent extends React.Component {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="widgetname"></label>
-                    <input type="text" className="form-control" id="widgetname" placeholder="Widget Name"/>
+
+                    <input type="text" className="form-control" placeholder="Widget Name"/>
                 </div>
                 {!this.state.editing &&
                 <div>
@@ -64,6 +64,11 @@ class HeadingWidgetComponent extends React.Component {
                     {this.state.widget.size === 6 && <h6>{this.state.widget.title}</h6>}
                 </div>
                 }
+                <button type="button" className="btn btn-success btn-lg btn-block"
+                onClick={()=> {
+                this.props.updateWidget(this.state.widget)
+                alert("Successfully saved!")}}>Save</button>
+
             </div>
         )
     }

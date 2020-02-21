@@ -5,7 +5,15 @@ export const findWidgetForTopic = async(tid) => {
     return response.json()
 }
 
-export const createWidget = async (widget) =>{
+export const orderWidget = async(wid, up) => {
+    const response = await fetch(`http://localhost:8080/widgets/${wid}/${up}`, {
+        method: "POST"
+    });
+    return response.json()
+}
+
+
+    export const createWidget = async (widget) =>{
     const response = await fetch(`http://localhost:8080/widgets`, {
         method: "POST",
         body: JSON.stringify(widget),
@@ -38,10 +46,12 @@ export const findAllWidget = async () =>{
     return response.json()
 }
 
+
 export default {
     findWidgetForTopic,
     createWidget,
     deleteWidget,
     updateWidget,
-    findAllWidget
+    findAllWidget,
+    orderWidget
 }
