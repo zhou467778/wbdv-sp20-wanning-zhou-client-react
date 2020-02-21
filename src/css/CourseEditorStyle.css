@@ -117,8 +117,13 @@
 }
 
 .btn-success {
+    display: inline-block;
+    margin-left: 10px;
+}
+.preview {
     margin-left: 80%;
 }
+
 
 .wbdv-big-heading {
     display: inline-block;
@@ -127,7 +132,7 @@
 .wbdv-up {
     background-color: #ffd700;
     color: black;
-    margin-left: 48%;
+    margin-left: 40%;
     display: inline-block;
 }
 
