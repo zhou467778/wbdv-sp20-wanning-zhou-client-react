@@ -1,19 +1,17 @@
-
-
-export const findWidgetForTopic = async(tid) => {
-    if(tid) {
+export const findWidgetForTopic = async (tid) => {
+    if (tid) {
         const response = await fetch(`http://localhost:8080/api/topics/${tid}/widgets`)
         return response.json()
     }
 
 }
-export const findWidgetById = async(wid) =>{
+export const findWidgetById = async (wid) => {
     const response = await fetch(`http://localhost:8080/api/widgets/${wid}`)
     return response.json()
 }
 
 
-export const upWidget = async(widget) => {
+export const upWidget = async (widget) => {
     const response = await fetch(`http://localhost:8080/api/widgets/up`, {
         method: "POST",
         body: JSON.stringify(widget),
@@ -24,7 +22,7 @@ export const upWidget = async(widget) => {
     return response.json()
 }
 
-export const downWidget = async(widget) => {
+export const downWidget = async (widget) => {
     const response = await fetch(`http://localhost:8080/api/widgets/down`, {
         method: "POST",
         body: JSON.stringify(widget),
@@ -36,8 +34,7 @@ export const downWidget = async(widget) => {
 }
 
 
-
-    export const createWidget = async (widget) =>{
+export const createWidget = async (widget) => {
     const response = await fetch(`http://localhost:8080/api/widgets`, {
         method: "POST",
         body: JSON.stringify(widget),
@@ -65,7 +62,7 @@ export const updateWidget = async (widget) => {
     })
     return response.json()
 }
-export const findAllWidget = async () =>{
+export const findAllWidget = async () => {
     const response = await fetch("http://localhost:8080/api/widgets")
     return response.json()
 }

@@ -1,10 +1,8 @@
-
-
 export const CREATE_WIDGET = "CREATE_WIDGET";
 
 export const createWidget_dis = (widget) => ({
     type: CREATE_WIDGET,
-    newWidget : widget
+    newWidget: widget
 })
 
 export const DELETE_WIDGET = "DELETE_WIDGET";
@@ -22,12 +20,12 @@ export const findWidgetForTopic_dis = (widgets) => ({
     widgets: widgets
 });
 
-export const UPDATE_WIDGET ="UPDATE_WIDGET";
+export const UPDATE_WIDGET = "UPDATE_WIDGET";
 
-export const updateWidget_dis = (widget) =>({
+export const updateWidget_dis = (widget) => ({
     type: UPDATE_WIDGET,
     newWidget: widget,
-    widgetId : widget.id
+    widgetId: widget.id
 
 })
 
@@ -39,7 +37,7 @@ export const findAllWidget_dis = (widgets) => ({
 
 })
 
-export const UP_WIDGET ="UP_WIDGET";
+export const UP_WIDGET = "UP_WIDGET";
 export const upWidget_dis = (widgets) => ({
     type: UP_WIDGET,
     widgets: widgets

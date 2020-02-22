@@ -3,7 +3,7 @@ import React from "react";
 class ParagraphWidgetComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
             widget: this.props.widget
         }
     }

@@ -9,11 +9,11 @@ import {
 } from "../actions/WidgetAction";
 
 const initialState = {
-    widgets:[]
+    widgets: []
 }
 
-const WidgetReducer = (state= initialState, action) => {
-    switch (action.type){
+const WidgetReducer = (state = initialState, action) => {
+    switch (action.type) {
         case UPDATE_WIDGET:
             return {
                 widgets: state.widgets.map(widget => widget.id === action.newWidget.id ? action.widget : widget)
@@ -39,11 +39,11 @@ const WidgetReducer = (state= initialState, action) => {
             }
 
         case UP_WIDGET:
-            return{
+            return {
                 widgets: action.widgets
             }
         case DOWN_WIDGET:
-            return{
+            return {
                 widgets: action.widgets
             }
         case FIND_WIDGET_BY_ID:

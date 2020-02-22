@@ -22,7 +22,7 @@ class WidgetListComponent extends React.Component {
         this.state = {
             widget: {},
             isPreview: false,
-            update:false
+            update: false
         }
     }
 
@@ -32,7 +32,7 @@ class WidgetListComponent extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.topicId !== this.props.topicId || this.state.update) {
-           this.props.findWidgetForTopic(this.props.topicId)
+            this.props.findWidgetForTopic(this.props.topicId)
             this.setState({
                 update: false
             })
@@ -51,22 +51,22 @@ class WidgetListComponent extends React.Component {
 
                 <div className="custom-control custom-switch wbdv-preview">
                     <input type="checkbox" className="custom-control-input" id="customSwitch1"
-                    onClick={()=> this.setState(prevState => ({
-                        isPreview: !prevState.isPreview
-                    }))}/>
-                        <label className="custom-control-label" htmlFor="customSwitch1">Preview</label>
-                    </div>
+                           onClick={() => this.setState(prevState => ({
+                               isPreview: !prevState.isPreview
+                           }))}/>
+                    <label className="custom-control-label" htmlFor="customSwitch1">Preview</label>
+                </div>
 
                 {this.props.widgets && this.props.widgets.length > 0 && this.props.widgets.map(widget =>
 
                     <div className="wbdv-boxed" key={widget.id}>
 
-                            <div className="wbdv-big-heading">
+                        <div className="wbdv-big-heading">
                             {widget.type === "HEADING" &&
-                            <h2 >Heading Widget</h2>}
+                            <h2>Heading Widget</h2>}
                             {widget.type === "PARAGRAPH" &&
                             <h2>Paragraph Widget</h2>}
-                            </div>
+                        </div>
                         {!this.state.isPreview &&
                         <div className="wbdv-button-group col-md-2">
                             {widget.order !== 0 &&
@@ -106,15 +106,15 @@ class WidgetListComponent extends React.Component {
 
                         {widget.type === "HEADING" &&
                         <HeadingWidgetComponent
-                            widget = {widget}
-                            isPreview = {this.state.isPreview}
-                            updateWidget = {this.props.updateWidget}
+                            widget={widget}
+                            isPreview={this.state.isPreview}
+                            updateWidget={this.props.updateWidget}
                         />}
                         {widget.type === "PARAGRAPH" &&
                         <ParagraphWidgetComponent
-                            widget = {widget}
-                            isPreview = {this.state.isPreview}
-                            updateWidget = {this.props.updateWidget}
+                            widget={widget}
+                            isPreview={this.state.isPreview}
+                            updateWidget={this.props.updateWidget}
                         />}
                     </div>
                 )}
@@ -138,7 +138,7 @@ class WidgetListComponent extends React.Component {
 }
 
 
-const  stateToPropertyMapper = (state) => {
+const stateToPropertyMapper = (state) => {
     return {
         widgets: state.widgets.widgets
     }
@@ -174,20 +174,20 @@ const dispatchToPropertyMapper = (dispatch) => {
                 .then(actualWidget =>
                     dispatch(findAllWidget_dis(actualWidget))),
 
-        upWidget:(widget) =>
+        upWidget: (widget) =>
             WidgetService.upWidget(widget)
                 .then(actualWidget =>
-                dispatch(upWidget_dis(actualWidget))),
+                    dispatch(upWidget_dis(actualWidget))),
 
         downWidget: (widget) =>
             WidgetService.downWidget(widget)
                 .then(actualWidget =>
-                dispatch(downWidget_dis(actualWidget))),
+                    dispatch(downWidget_dis(actualWidget))),
 
         findWidgetById: (widget) =>
             WidgetService.findWidgetById(widget)
                 .then(actualWidget =>
-                dispatch(findWidgetById_dis(actualWidget)))
+                    dispatch(findWidgetById_dis(actualWidget)))
 
     }
 
