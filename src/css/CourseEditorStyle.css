@@ -120,35 +120,30 @@
     display: inline-block;
     margin-left: 10px;
 }
-.preview {
-    margin-left: 80%;
-}
-
 
 .wbdv-big-heading {
     display: inline-block;
 }
 
 .wbdv-up {
-    background-color: #ffd700;
-    color: black;
-    margin-left: 50%;
-    display: inline-block;
+display: inline-block;
 }
 
 .wbdv-down {
-    background-color: #ffd700;
-    display: inline-block;
+    margin-left: 5px;
+}
+.wbdv-widget-type{
+display: inline-block;
 }
 
-.wbdv-heading {
-    display: inline-block;
-}
 
 .wbdv-red-close {
     background-color: #DE1616;
+display: inline-block;
     color: white;
-    display: inline-block;
+    margin-left: 10px;
+
+
 }
 
 .wbdv-red-plus {
@@ -238,6 +233,14 @@
     background-color: darkred;
     color: white;
 }
+.wbdv-preview{
+    margin-left: 85%;
+}
+.wbdv-button-group{
+float: right;
+
+}
+
 
 
 

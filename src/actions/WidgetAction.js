@@ -38,3 +38,21 @@ export const findAllWidget_dis = (widgets) => ({
     widgets: widgets
 
 })
+
+export const UP_WIDGET ="UP_WIDGET";
+export const upWidget_dis = (widgets) => ({
+    type: UP_WIDGET,
+    widgets: widgets
+})
+
+export const DOWN_WIDGET = "DOWN_WIDGET";
+export const downWidget_dis = (widgets) => ({
+    type: DOWN_WIDGET,
+    widgets: widgets
+})
+
+export const FIND_WIDGET_BY_ID = "FIND_WIDGET_BY_ID";
+export const findWidgetById_dis = (widget) => ({
+    type: FIND_WIDGET_BY_ID,
+    widget: widget
+})

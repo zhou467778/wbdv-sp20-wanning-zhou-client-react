@@ -16,7 +16,8 @@ class CourseManagerContainer extends React.Component {
             selected: false,
             newCourseTitle: '',
             courses: [],
-            id: ''
+            id: '',
+            currentTopicId: null,
         }
     }
 
@@ -179,7 +180,7 @@ class CourseManagerContainer extends React.Component {
                                    lessonId={props.match.params.lessonId}
                                    moduleId={props.match.params.moduleId}
                                    courseId={props.match.params.courseId}
-                                    topicId = {props.match.params.topicId}
+                                   topicId = {props.match.params.topicId}
                                    courseTitle = {props.match.params.courseTitle}/>
                            }/>
 

@@ -1,20 +1,44 @@
 
 
 export const findWidgetForTopic = async(tid) => {
-    const response = await fetch(`http://localhost:8080/topics/${tid}/widgets`)
+    if(tid) {
+        const response = await fetch(`http://localhost:8080/api/topics/${tid}/widgets`)
+        return response.json()
+    }
+
+}
+export const findWidgetById = async(wid) =>{
+    const response = await fetch(`http://localhost:8080/api/widgets/${wid}`)
     return response.json()
 }
 
-export const orderWidget = async(wid, up) => {
-    const response = await fetch(`http://localhost:8080/widgets/${wid}/${up}`, {
-        method: "POST"
-    });
+
+export const upWidget = async(widget) => {
+    const response = await fetch(`http://localhost:8080/api/widgets/up`, {
+        method: "POST",
+        body: JSON.stringify(widget),
+        headers: {
+            "content-type": "application/json"
+        }
+    })
     return response.json()
 }
+
+export const downWidget = async(widget) => {
+    const response = await fetch(`http://localhost:8080/api/widgets/down`, {
+        method: "POST",
+        body: JSON.stringify(widget),
+        headers: {
+            "content-type": "application/json"
+        }
+    })
+    return response.json()
+}
+
 
 
     export const createWidget = async (widget) =>{
-    const response = await fetch(`http://localhost:8080/widgets`, {
+    const response = await fetch(`http://localhost:8080/api/widgets`, {
         method: "POST",
         body: JSON.stringify(widget),
         headers: {
@@ -25,14 +49,14 @@ export const orderWidget = async(wid, up) => {
 }
 
 export const deleteWidget = async (wid) => {
-    const response = await fetch(`http://localhost:8080/widgets/${wid}`, {
+    const response = await fetch(`http://localhost:8080/api/widgets/${wid}`, {
         method: "DELETE"
     })
     return response.json()
 }
 
 export const updateWidget = async (widget) => {
-    const response = await fetch(`http://localhost:8080/widgets/${widget.id}`, {
+    const response = await fetch(`http://localhost:8080/api/widgets/${widget.id}`, {
         method: "PUT",
         body: JSON.stringify(widget),
         headers: {
@@ -42,7 +66,7 @@ export const updateWidget = async (widget) => {
     return response.json()
 }
 export const findAllWidget = async () =>{
-    const response = await fetch("http://localhost:8080/widgets")
+    const response = await fetch("http://localhost:8080/api/widgets")
     return response.json()
 }
 
@@ -53,5 +77,7 @@ export default {
     deleteWidget,
     updateWidget,
     findAllWidget,
-    orderWidget
+    upWidget,
+    downWidget,
+    findWidgetById
 }

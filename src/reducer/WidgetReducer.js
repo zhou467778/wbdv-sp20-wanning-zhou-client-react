@@ -1,4 +1,12 @@
-import {CREATE_WIDGET, DELETE_WIDGET, FIND_WIDGETS_FOR_TOPIC, UPDATE_WIDGET, FIND_ALL_WIDGET} from "../actions/WidgetAction";
+import {
+    CREATE_WIDGET,
+    DELETE_WIDGET,
+    FIND_WIDGETS_FOR_TOPIC,
+    UPDATE_WIDGET,
+    FIND_ALL_WIDGET,
+    UP_WIDGET,
+    DOWN_WIDGET, FIND_WIDGET_BY_ID
+} from "../actions/WidgetAction";
 
 const initialState = {
     widgets:[]
@@ -28,6 +36,19 @@ const WidgetReducer = (state= initialState, action) => {
         case FIND_ALL_WIDGET:
             return {
                 widgets: action.widgets
+            }
+
+        case UP_WIDGET:
+            return{
+                widgets: action.widgets
+            }
+        case DOWN_WIDGET:
+            return{
+                widgets: action.widgets
+            }
+        case FIND_WIDGET_BY_ID:
+            return {
+                widgets: action.widget
             }
         default:
             return state
