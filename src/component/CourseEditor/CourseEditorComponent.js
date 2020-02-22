@@ -30,7 +30,10 @@ const CourseEditorComponent = ({history, courseId, courseTitle, moduleId, lesson
     <Provider store={store}>
         <div className=" bg-white wbdv-main">
             <div className="wbdv-button-course-title">
-                <button onClick={() => history.push("/")}
+                <button onClick={() => {
+                    history.push("/");
+                    topicId = null;
+                }}
                         className="wbdv-course-editor wbdv-close"><i className="fa fa-times "></i></button>
                 &nbsp; &nbsp; &nbsp;
                 <h2 className="wbdv-course-title">{courseTitle}</h2>

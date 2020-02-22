@@ -9,7 +9,7 @@ import {
     findWidgetForTopic_dis,
     updateWidget_dis,
     upWidget_dis,
-    downWidget_dis
+    downWidget_dis, findWidgetById_dis
 } from "../../actions/WidgetAction";
 import {connect} from "react-redux";
 import HeadingWidgetComponent from "./HeadingWidgetComponent";
@@ -27,7 +27,7 @@ class WidgetListComponent extends React.Component {
     }
 
     componentDidMount() {
-        this.props.topicId && this.props.findWidgetForTopic(this.props.topicId)
+        this.props.findWidgetForTopic(this.props.topicId)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -67,50 +67,55 @@ class WidgetListComponent extends React.Component {
                             {widget.type === "PARAGRAPH" &&
                             <h2>Paragraph Widget</h2>}
                             </div>
-
+                        {!this.state.isPreview &&
                         <div className="wbdv-button-group col-md-2">
-                            { widget.order !== 0 &&
+                            {widget.order !== 0 &&
                             <button className="wbdv-up btn btn-warning"
-                                    onClick={() => {this.props.upWidget(widget);
-                                    console.log(widget.order);
-                                    this.update()}}>
-                                    <i className="fa fa-arrow-up"></i></button>
+                                    onClick={() => {
+                                        this.props.upWidget(widget);
+                                        this.update()
+                                    }}>
+                                <i className="fa fa-arrow-up"></i></button>
                             }
                             {widget.order !== this.props.widgets.length - 1 &&
                             < button className="wbdv-down btn btn-warning"
-                                onClick={() => {this.props.downWidget(widget);
-                                this.update()}}><i className="fa fa-arrow-down"></i></button>
+                                     onClick={() => {
+                                         this.props.downWidget(widget);
+                                         this.update()
+                                     }}><i className="fa fa-arrow-down"></i></button>
                             }
-
-                                <select className="form-control wbdv-widget-type "
-                                        onChange={(e) => {
-                                            const newType = e.target.value;
-                                            widget.type = newType;
-                                            this.props.updateWidget(widget)
-                                        }}
-                                        value={widget.type}>
-                                    <option value={"HEADING"}>Heading</option>
-                                    <option value={"PARAGRAPH"}>Paragraph</option>
-                                </select>
-
                             <button className="wbdv-red-close"
-                            onClick={() => this.props.deleteWidget(widget.id)}>
+                                    onClick={() => this.props.deleteWidget(widget.id)
+                                    }>
                                 <i className="fa fa-times"></i></button>
-                        </div>
 
+                            <select className="form-control wbdv-widget-type "
+                                    onChange={(e) => {
+                                        const newType = e.target.value;
+                                        widget.type = newType;
+                                        this.props.updateWidget(widget)
+                                    }}
+                                    value={widget.type}>
+                                <option value={"HEADING"}>Heading</option>
+                                <option value={"PARAGRAPH"}>Paragraph</option>
+                            </select>
+
+
+                        </div>
+                        }
 
                         {widget.type === "HEADING" &&
                         <HeadingWidgetComponent
-                        widget = {widget}
-                        isPreview = {this.state.isPreview}
-                        updateWidget = {this.props.updateWidget}
+                            widget = {widget}
+                            isPreview = {this.state.isPreview}
+                            updateWidget = {this.props.updateWidget}
                         />}
                         {widget.type === "PARAGRAPH" &&
                         <ParagraphWidgetComponent
                             widget = {widget}
                             isPreview = {this.state.isPreview}
                             updateWidget = {this.props.updateWidget}
-                            />}
+                        />}
                     </div>
                 )}
                 <button className="wbdv-red-plus"
@@ -131,6 +136,7 @@ class WidgetListComponent extends React.Component {
         )
     }
 }
+
 
 const  stateToPropertyMapper = (state) => {
     return {
@@ -176,7 +182,13 @@ const dispatchToPropertyMapper = (dispatch) => {
         downWidget: (widget) =>
             WidgetService.downWidget(widget)
                 .then(actualWidget =>
-                dispatch(downWidget_dis(actualWidget)))
+                dispatch(downWidget_dis(actualWidget))),
+
+        findWidgetById: (widget) =>
+            WidgetService.findWidgetById(widget)
+                .then(actualWidget =>
+                dispatch(findWidgetById_dis(actualWidget)))
+
     }
 
 }
