@@ -46,14 +46,16 @@ class ParagraphWidgetComponent extends React.Component {
                     < div className="form-group">
                         <input type="text" className="form-control" id="widgetname" placeholder="Widget Name"/>
                     </div>
+                </div>
 
+}
 
                     <div>
                         <h4>Preview</h4>
                         <p>{this.state.widget.title}</p>
                     </div>
-                </div>
-                }
+
+
 
                 {!this.props.isPreview &&
                 <button type="button" className="btn btn-success btn-lg btn-block"
