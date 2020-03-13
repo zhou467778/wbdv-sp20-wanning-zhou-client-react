@@ -21,11 +21,11 @@ const TopicReducer = (state = initialState, action) => {
             }
         case DELETE_TOPIC:
             return {
-                topics: state.topics.filter(topic => topic._id !== action.topicId)
+                topics: state.topics.filter(topic => topic.id !== action.topicId)
             }
         case UPDATE_TOPIC:
             return{
-                topics: state.topics.map(topic => topic._id === action.newTopicId ? action.newTopic : topic
+                topics: state.topics.map(topic => topic.id === action.newTopicId ? action.newTopic : topic
                 )
             }
         default:

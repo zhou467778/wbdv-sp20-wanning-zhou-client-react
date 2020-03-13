@@ -26,6 +26,6 @@ export const UPDATE_TOPIC ="UPDATE_TOPIC";
 export const updateTopic_dis = (topic) =>({
     type: UPDATE_TOPIC,
     newTopic: topic,
-    newTopicId : topic._id
+    newTopicId : topic.id
 })
 

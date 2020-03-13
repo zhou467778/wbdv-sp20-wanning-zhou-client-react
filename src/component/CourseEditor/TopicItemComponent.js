@@ -30,7 +30,7 @@ class TopicItemComponent extends React.Component {
                                    })}
                             />
                             <button className="wbdv-topic-pill-delete"
-                                    onClick={() => this.props.deleteTopic(this.props.topic._id)}>X</button>
+                                    onClick={() => this.props.deleteTopic(this.props.topic.id)}>X</button>
                             <button className="wbdv-topic-pill-check"
                                     onClick={() => {
                                         const newTopic = this.props.topic;

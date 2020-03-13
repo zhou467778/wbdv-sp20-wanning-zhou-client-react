@@ -34,29 +34,29 @@ class TopicPillsComponent extends React.Component {
                 <ul className="nav nav-tabs nav-justified">
                     {this.props.topics && this.props.topics.map(topic =>
                         <Link
-                            to={`/course-editor/${this.props.courseTitle}/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}/topic/${topic._id}`}>
+                            to={`/course-editor/${this.props.courseTitle}/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}/topic/${topic.id}`}>
 
                             <TopicItemComponent
-                                key={topic._id}
+                                key={topic.id}
                                 topic={topic}
 
                                 edit={() => {
                                     this.props.history.push(`/course-editor/${this.props.courseTitle}/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}`)
                                     this.setState({
-                                        editingTopic: topic._id
+                                        editingTopic: topic.id
                                     })
                                 }}
                                 select={() => {
                                     this.props.history.push(`/course-editor/${this.props.courseTitle}/${this.props.courseId}/module/${this.props.moduleId}/lesson/${this.props.lessonId}`)
                                     this.setState({
-                                        selectingTopicId: topic._id
+                                        selectingTopicId: topic.id
                                     })
                                 }}
                                 save={() => this.setState({
                                     editingTopic: ''
                                 })}
-                                editing={this.state.editingTopic === topic._id}
-                                selecting={this.state.selectingTopicId === topic._id}
+                                editing={this.state.editingTopic === topic.id}
+                                selecting={this.state.selectingTopicId === topic.id}
                                 deleteTopic={this.props.deleteTopic}
                                 updateTopic={this.props.updateTopic}/>
 

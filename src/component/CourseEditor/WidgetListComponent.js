@@ -15,6 +15,8 @@ import {connect} from "react-redux";
 import HeadingWidgetComponent from "./HeadingWidgetComponent";
 import ParagraphWidgetComponent from "./ParagraphWidgetComponent";
 import WidgetService from "../../services/WidgetService";
+import ListWidgetComponent from "./ListWidgetComponent";
+import ImageWidgetComponent from "./ImageWidgetComponent";
 
 class WidgetListComponent extends React.Component {
     constructor(props) {
@@ -22,16 +24,19 @@ class WidgetListComponent extends React.Component {
         this.state = {
             widget: {},
             isPreview: false,
-            update: false
+            update: false,
         }
     }
 
     componentDidMount() {
         this.props.findWidgetForTopic(this.props.topicId)
+
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.topicId !== this.props.topicId || this.state.update) {
+        if (prevProps.topicId !== this.props.topicId || this.state.update ||
+            this.props.widgets.length !== prevProps.widgets.length) {
             this.props.findWidgetForTopic(this.props.topicId)
             this.setState({
                 update: false
@@ -39,16 +44,17 @@ class WidgetListComponent extends React.Component {
         }
     }
 
-    update = () =>
+    update = () => {
         this.setState(prevState => ({
             update: !prevState.update
         }))
+    }
+
 
 
     render() {
         return (
             <div className="wbdv-content">
-
                 <div className="custom-control custom-switch wbdv-preview">
                     <input type="checkbox" className="custom-control-input" id="customSwitch1"
                            onClick={() => this.setState(prevState => ({
@@ -56,79 +62,113 @@ class WidgetListComponent extends React.Component {
                            }))}/>
                     <label className="custom-control-label" htmlFor="customSwitch1">Preview</label>
                 </div>
+                {
+                    this.props.widgets && this.props.widgets.length > 0 && this.props.widgets.map((widget, index) =>
+                    <div>
 
-                {this.props.widgets && this.props.widgets.length > 0 && this.props.widgets.map(widget =>
 
-                    <div className="wbdv-boxed" key={widget.id}>
+                        <div className="wbdv-boxed" key={widget.id}>
 
-                        <div className="wbdv-big-heading">
+                            <div className="wbdv-big-heading">
+                                {widget.type === "HEADING" &&
+                                <h2>Heading Widget</h2>}
+                                {widget.type === "PARAGRAPH" &&
+                                <h2>Paragraph Widget</h2>}
+                                {widget.type === "LIST" &&
+                                <h2>List Widget</h2>}
+                                {widget.type === "IMAGE" &&
+                                <h2>Image Widget</h2>}
+                            </div>
+                            {!this.state.isPreview &&
+                            <div className="wbdv-button-group col-md-2">
+                                {index !== 0 &&
+                                <button className="wbdv-up btn btn-warning"
+                                        onClick={() => {
+                                            this.props.upWidget(widget);
+
+                                        }}>
+                                    <i className="fa fa-arrow-up"></i></button>
+                                }
+                                {index !== this.props.widgets.length - 1 &&
+                                < button className="wbdv-down btn btn-warning"
+                                         onClick={() => {
+                                             this.props.downWidget(widget);
+
+                                         }}><i className="fa fa-arrow-down"></i></button>
+                                }
+                                <button className="wbdv-red-close"
+                                        onClick={() => {
+                                            this.props.deleteWidget(widget.id);
+                                        }
+                                        }>
+                                    <i className="fa fa-times"></i></button>
+
+                                <select className="form-control wbdv-widget-type "
+                                        onChange={(e) => {
+                                            const newType = e.target.value;
+                                            widget.type = newType;
+                                            this.props.updateWidget(widget)
+
+                                        }}
+                                        value={widget.type}>
+                                    <option value={"HEADING"}>Heading</option>
+                                    <option value={"PARAGRAPH"}>Paragraph</option>
+                                    <option value={"LIST"}>List</option>
+                                    <option value={"IMAGE"}>Image</option>
+                                </select>
+
+
+                            </div>
+                            }
+
                             {widget.type === "HEADING" &&
-                            <h2>Heading Widget</h2>}
+                            <HeadingWidgetComponent
+                                widget={widget}
+                                isPreview={this.state.isPreview}
+                                updateWidget={this.props.updateWidget}
+                                topicId = {this.props.topicId}
+                                findWidgetForTopic = {this.props.findWidgetForTopic}
+
+                            />}
                             {widget.type === "PARAGRAPH" &&
-                            <h2>Paragraph Widget</h2>}
+                            <ParagraphWidgetComponent
+                                widget={widget}
+                                isPreview={this.state.isPreview}
+                                updateWidget={this.props.updateWidget}
+                                topicId = {this.props.topicId}
+                                findWidgetForTopic = {this.props.findWidgetForTopic}
+
+                            />}
+                            {widget.type === "LIST" &&
+                            <ListWidgetComponent
+                                widget={widget}
+                                isPreview={this.state.isPreview}
+                                updateWidget={this.props.updateWidget}
+                                topicId = {this.props.topicId}
+                                findWidgetForTopic = {this.props.findWidgetForTopic}
+                                />}
+                            {widget.type === "IMAGE" &&
+                            <ImageWidgetComponent
+                                widget={widget}
+                                isPreview={this.state.isPreview}
+                                updateWidget={this.props.updateWidget}
+                                topicId = {this.props.topicId}
+                                findWidgetForTopic = {this.props.findWidgetForTopic}
+                            />}
                         </div>
-                        {!this.state.isPreview &&
-                        <div className="wbdv-button-group col-md-2">
-                            {widget.order !== 0 &&
-                            <button className="wbdv-up btn btn-warning"
-                                    onClick={() => {
-                                        this.props.upWidget(widget);
-                                        this.update()
-                                    }}>
-                                <i className="fa fa-arrow-up"></i></button>
-                            }
-                            {widget.order !== this.props.widgets.length - 1 &&
-                            < button className="wbdv-down btn btn-warning"
-                                     onClick={() => {
-                                         this.props.downWidget(widget);
-                                         this.update()
-                                     }}><i className="fa fa-arrow-down"></i></button>
-                            }
-                            <button className="wbdv-red-close"
-                                    onClick={() => this.props.deleteWidget(widget.id)
-                                    }>
-                                <i className="fa fa-times"></i></button>
-
-                            <select className="form-control wbdv-widget-type "
-                                    onChange={(e) => {
-                                        const newType = e.target.value;
-                                        widget.type = newType;
-                                        this.props.updateWidget(widget)
-                                    }}
-                                    value={widget.type}>
-                                <option value={"HEADING"}>Heading</option>
-                                <option value={"PARAGRAPH"}>Paragraph</option>
-                            </select>
-
-
-                        </div>
-                        }
-
-                        {widget.type === "HEADING" &&
-                        <HeadingWidgetComponent
-                            widget={widget}
-                            isPreview={this.state.isPreview}
-                            updateWidget={this.props.updateWidget}
-                        />}
-                        {widget.type === "PARAGRAPH" &&
-                        <ParagraphWidgetComponent
-                            widget={widget}
-                            isPreview={this.state.isPreview}
-                            updateWidget={this.props.updateWidget}
-                        />}
                     </div>
                 )}
                 <button className="wbdv-red-plus"
                         onClick={() => {
-                            this.props.topicId &&
-                            this.props.createWidget({
-                                id: (new Date()).getTime() + "",
+                            this.props.topicId && this.props.createWidget(this.props.topicId, {
+                                id: parseInt(Math.random() * 1000 + 1),
                                 title: "New Widget",
                                 type: "HEADING",
                                 size: 1,
-                                topicId: this.props.topicId
+                                url:"",
+                                listType: "unordered"
                             })
-                            !this.props.topicId && alert("Please select a topic first")
+
                         }}><i className="fa fa-plus"></i></button>
 
             </div>
@@ -153,8 +193,8 @@ const dispatchToPropertyMapper = (dispatch) => {
                 ))
         },
 
-        createWidget: (widget) => {
-            WidgetService.createWidget(widget)
+        createWidget: (topicId, widget) => {
+            WidgetService.createWidget(topicId, widget)
                 .then(actualWidget =>
                     dispatch(createWidget_dis(actualWidget)))
         },

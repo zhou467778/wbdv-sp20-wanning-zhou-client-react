@@ -4,9 +4,22 @@ class ParagraphWidgetComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            widget: this.props.widget
+            widget: this.props.widget,
+            update: false
         }
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.state.update){
+            this.props.findWidgetForTopic(this.props.topicId);
+            this.setState({update: false} )
+        }
+    }
+
+    update = () =>
+        this.setState(prevState => ({
+            update: !prevState.update
+        }))
 
 
     render() {
@@ -46,6 +59,7 @@ class ParagraphWidgetComponent extends React.Component {
                 <button type="button" className="btn btn-success btn-lg btn-block"
                         onClick={() => {
                             this.props.updateWidget(this.state.widget)
+                            this.update()
                             alert("Successfully saved!")
                         }}>Save
                 </button>

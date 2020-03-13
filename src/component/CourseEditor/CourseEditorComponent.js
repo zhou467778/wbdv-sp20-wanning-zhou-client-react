@@ -46,29 +46,35 @@ const CourseEditorComponent = ({history, courseId, courseTitle, moduleId, lesson
                 courseTitle={courseTitle}
                 history={history}
             />
-
-            <LessonTabsComponent
-                courseId={courseId}
-                moduleId={moduleId}
-                courseTitle={courseTitle}
-                history={history}
-                lessonId={lessonId}
-            />
-
-            <TopicPillsComponent
-                courseId={courseId}
-                moduleId={moduleId}
-                courseTitle={courseTitle}
-                history={history}
-                lessonId={lessonId}
-                topicId={topicId}
-            />
+            {moduleId &&
+                <LessonTabsComponent
+                    courseId={courseId}
+                    moduleId={moduleId}
+                    courseTitle={courseTitle}
+                    history={history}
+                    lessonId={lessonId}
+                />
+            }
+            {lessonId &&
+                <TopicPillsComponent
+                    courseId={courseId}
+                    moduleId={moduleId}
+                    courseTitle={courseTitle}
+                    history={history}
+                    lessonId={lessonId}
+                    topicId={topicId}
+                />
+            }
 
             <br></br>
 
-            <WidgetListComponent
-                topicId = {topicId}
+            {
+                topicId &&
+                <WidgetListComponent
+                    topicId = {topicId}
                 />
+            }
+
 
 
         </div>

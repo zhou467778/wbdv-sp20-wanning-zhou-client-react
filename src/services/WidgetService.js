@@ -1,8 +1,8 @@
 export const findWidgetForTopic = async (tid) => {
-    if (tid) {
+     if (tid) {
         const response = await fetch(`https://cs4550-wanning.herokuapp.com/api/topics/${tid}/widgets`)
         return response.json()
-    }
+     }
 
 }
 export const findWidgetById = async (wid) => {
@@ -34,8 +34,8 @@ export const downWidget = async (widget) => {
 }
 
 
-export const createWidget = async (widget) => {
-    const response = await fetch(`https://cs4550-wanning.herokuapp.com/api/widgets`, {
+export const createWidget = async (topicId, widget) => {
+    const response = await fetch(`https://cs4550-wanning.herokuapp.com/api/topics/${topicId}/widgets`, {
         method: "POST",
         body: JSON.stringify(widget),
         headers: {
